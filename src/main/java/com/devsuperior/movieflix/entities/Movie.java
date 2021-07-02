@@ -29,7 +29,7 @@ public class Movie implements Serializable{
 	private String imgUrl;
 	
 	@Column(columnDefinition = "TEXT")
-	private String Synopsis;
+	private String synopsis;
 	
 	@ManyToOne
 	@JoinColumn(name = "genre_id")
@@ -49,7 +49,7 @@ public class Movie implements Serializable{
 		this.subTitle = subTitle;
 		this.year = year;
 		this.imgUrl = imgUrl;
-		Synopsis = synopsis;
+		this.synopsis = synopsis;
 		this.genre = genre;
 	}
 	
@@ -94,11 +94,11 @@ public class Movie implements Serializable{
 	}
 
 	public String getSynopsis() {
-		return Synopsis;
+		return synopsis;
 	}
 
 	public void setSynopsis(String synopsis) {
-		Synopsis = synopsis;
+		this.synopsis = synopsis;
 	}
 
 	public Genre getGenre() {

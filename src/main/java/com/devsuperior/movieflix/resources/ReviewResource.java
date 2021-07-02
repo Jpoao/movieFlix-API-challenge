@@ -11,7 +11,7 @@ import com.devsuperior.movieflix.dto.ReviewDTO;
 import com.devsuperior.movieflix.services.ReviewService;
 
 @RestController
-@RequestMapping(path = "/reviews")
+@RequestMapping(value = "/reviews")
 public class ReviewResource {
 
 	@Autowired
