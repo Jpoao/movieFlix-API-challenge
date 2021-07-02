@@ -2,11 +2,8 @@ package com.devsuperior.movieflix.dto;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
-import com.devsuperior.movieflix.entities.Movie;
 import com.devsuperior.movieflix.entities.Review;
 import com.devsuperior.movieflix.entities.User;
 
@@ -14,7 +11,10 @@ public class ReviewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+
+	@NotBlank
 	private String text;
+	
 	private Long movieId;
 	private UserDTO user;
 	

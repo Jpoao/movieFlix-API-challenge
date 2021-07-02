@@ -24,15 +24,15 @@ public class ReviewService {
 	private AuthService authService;
 	
 	@Transactional
-	public ReviewDTO InsertUserReview(String text, Long movieId) {
+	public ReviewDTO InsertUserReview(ReviewDTO newReview) {
 		
 		User authenticatedUser = authService.authenticated();
 		
 		authService.validateMemberOrVisitor(authenticatedUser.getId());
 		
 		Review review = new Review();
-		review.setMovie(movieRepository.getOne(movieId));
-		review.setText(text);
+		review.setMovie(movieRepository.getOne(newReview.getMovieId()));
+		review.setText(newReview.getText());
 		review.setUser(authenticatedUser);
 		reviewRepository.save(review);
 		
