@@ -18,7 +18,7 @@ public class ReviewResource {
 	private ReviewService service;
 	
 	@PostMapping
-	public ResponseEntity<ReviewDTO> InsertNewReview(@RequestBody ReviewDTO review){
+	public ResponseEntity<ReviewDTO> Insert(@RequestBody ReviewDTO review){
 		ReviewDTO result = service.InsertUserReview(review.getText(), review.getMovieId());
 		return ResponseEntity.ok().body(result);
 		
