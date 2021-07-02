@@ -28,6 +28,8 @@ public class ReviewService {
 		
 		User authenticatedUser = authService.authenticated();
 		
+		authService.validateMemberOrVisitor(authenticatedUser.getId());
+		
 		Review review = new Review();
 		review.setMovie(movieRepository.getOne(movieId));
 		review.setText(text);

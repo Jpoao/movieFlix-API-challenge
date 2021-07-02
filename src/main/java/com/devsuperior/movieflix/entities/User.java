@@ -152,8 +152,9 @@ public class User implements Serializable, UserDetails{
 
 	public boolean hasRole(String role) {
 		for(Role x : roles) {
-			if(x.getAuthority() == role)
+			if(x.getAuthority().equals(role)) {
 				return true;
+			}
 		}
 		return false;
 	}		

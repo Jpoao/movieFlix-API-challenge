@@ -23,9 +23,9 @@ public class AuthService {
 		return userRepository.findByEmail(username);
 	}
 	
-	public void validateMemberOrVisiting(Long userId) {
+	public void validateMemberOrVisitor(Long userId) {
 		User user = authenticated();
-		if(!user.getId().equals(userId) && user.hasRole("ROLE_MEMBER")) {
+		if(user.getId().equals(userId) && !user.hasRole("ROLE_MEMBER")) {
 			throw new ForbiddenException("Access denied!");
 		}
 	}
