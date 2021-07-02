@@ -1,28 +1,25 @@
 package com.devsuperior.movieflix.dto;
 
-import java.io.Serializable;
+import java.util.List;
 
 import com.devsuperior.movieflix.entities.Genre;
-import com.devsuperior.movieflix.entities.Movie;
 
-public class MovieGenreDTO implements Serializable {
-	private static final long serialVersionUID = 1L;
-
+public class GenreDTO {
+	
 	private Long id;
 	private String name;
 	
-	MovieGenreDTO(Genre genre){
-		
+	public GenreDTO(){	
 	}
 	
-	public MovieGenreDTO(Long id, String name) {
+	public GenreDTO(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 	
-	public MovieGenreDTO(Movie movie) {
-		this.id = movie.getGenre().getId();
-		this.name = movie.getGenre().getName();
+	public GenreDTO(Genre genre) {
+		id = genre.getId();
+		name = genre.getName();
 	}
 
 	public Long getId() {
