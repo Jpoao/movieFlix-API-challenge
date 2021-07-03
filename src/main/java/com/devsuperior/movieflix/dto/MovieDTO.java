@@ -14,7 +14,7 @@ public class MovieDTO implements Serializable {
 	private String imgUrl;
 	private String synopsis;
 	
-	private MovieGenreDTO genre;
+	private GenreDTO genre;
 	
 	public MovieDTO() {
 		
@@ -37,7 +37,7 @@ public class MovieDTO implements Serializable {
 		year = movie.getYear();
 		imgUrl = movie.getImgUrl();
 		synopsis = movie.getSynopsis();
-		genre = new MovieGenreDTO (movie.getGenre().getId(), movie.getGenre().getName());
+		genre = new GenreDTO (movie.getGenre().getId(), movie.getGenre().getName());
 		
 	}
 	
@@ -89,11 +89,11 @@ public class MovieDTO implements Serializable {
 		this.synopsis = synopsis;
 	}
 
-	public MovieGenreDTO getGenre() {
+	public GenreDTO getGenre() {
 		return genre;
 	}
 
-	public void setGenre(MovieGenreDTO genre) {
+	public void setGenre(GenreDTO genre) {
 		this.genre = genre;
 	}
 	

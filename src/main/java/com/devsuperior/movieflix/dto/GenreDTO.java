@@ -1,7 +1,5 @@
 package com.devsuperior.movieflix.dto;
 
-import java.util.List;
-
 import com.devsuperior.movieflix.entities.Genre;
 
 public class GenreDTO {
