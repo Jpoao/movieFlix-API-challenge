@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.movieflix.dto.MovieDTO;
 import com.devsuperior.movieflix.dto.MovieGenreDTO;
+import com.devsuperior.movieflix.dto.ReviewDTO;
 import com.devsuperior.movieflix.entities.Movie;
 import com.devsuperior.movieflix.repositories.MovieRepository;
 import com.devsuperior.movieflix.services.exceptions.EntityNotFoundException;
@@ -32,4 +33,9 @@ public class MovieService {
 	public Page<List<MovieGenreDTO>> findByGenre(Long genreId, Pageable pageable) {
 		return repository.findGenreOrdered(genreId, pageable);
 	}
+
+	public List<ReviewDTO> findReviewsByMovie(Long id) {	
+		return repository.findReviewByMovie(id);
+	}
+
 }
