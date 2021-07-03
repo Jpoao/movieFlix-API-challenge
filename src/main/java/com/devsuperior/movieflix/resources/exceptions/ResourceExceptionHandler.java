@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.client.HttpClientErrorException.UnprocessableEntity;
 
+import com.devsuperior.movieflix.services.exceptions.EntityNotFoundException;
 import com.devsuperior.movieflix.services.exceptions.ForbiddenException;
 import com.devsuperior.movieflix.services.exceptions.UnprocessableException;
 
@@ -33,6 +34,19 @@ public class ResourceExceptionHandler {
 		err.setStatus(status.value());
 		err.setError("Unprocessable entity");
 		err.setMessage(e.getFieldError().getDefaultMessage());
+		err.setPath(request.getRequestURI());
+
+		return ResponseEntity.status(status).body(err);
+	}	
+	
+	@ExceptionHandler(EntityNotFoundException.class)
+	public ResponseEntity<StandardError> entityNotFound(EntityNotFoundException e, HttpServletRequest request) {
+		HttpStatus status = HttpStatus.NOT_FOUND;
+		StandardError err = new StandardError();
+		err.setTimestamp(Instant.now());
+		err.setStatus(status.value());
+		err.setError("Entity not found");
+		err.setMessage(e.getMessage());
 		err.setPath(request.getRequestURI());
 
 		return ResponseEntity.status(status).body(err);
