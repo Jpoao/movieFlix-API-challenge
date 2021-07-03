@@ -1,5 +1,7 @@
 package com.devsuperior.movieflix.resources;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,8 +21,8 @@ public class GenreResource {
 	private GenreService service;
 	
 	@GetMapping
-	public ResponseEntity<Page<GenreDTO>> findAll(Pageable pageable){
-		Page<GenreDTO> result = service.findAll(pageable);
+	public ResponseEntity<List<GenreDTO>> findAll(){
+		List<GenreDTO> result = service.findAll();
 		return ResponseEntity.ok().body(result);
 	}
 }
