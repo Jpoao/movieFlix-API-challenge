@@ -13,7 +13,8 @@ import com.devsuperior.movieflix.entities.Movie;
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
 	@Query(value = "SELECT obj FROM Movie obj WHERE "
-			+ "(:genreId = 0L OR :genreId IS NULL) OR (obj.genre.id = :genreId)")
+			+ "(:genreId = 0L OR :genreId IS NULL) OR (obj.genre.id = :genreId)"
+			+ "ORDER BY obj.title")
 	Page<List<MovieGenreDTO>> findGenreOrdered(Long genreId, Pageable pageable);
 
 }
