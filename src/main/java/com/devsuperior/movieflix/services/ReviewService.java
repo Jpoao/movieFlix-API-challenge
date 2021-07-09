@@ -36,6 +36,6 @@ public class ReviewService {
 		review.setUser(authenticatedUser);
 		reviewRepository.save(review);
 		
-		return new ReviewDTO(review, authenticatedUser);
+		return new ReviewDTO(review);
 	}
 }
