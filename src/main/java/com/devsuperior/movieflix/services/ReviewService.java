@@ -33,6 +33,7 @@ public class ReviewService {
 		Review review = new Review();
 		review.setMovie(movieRepository.getOne(newReview.getMovieId()));
 		review.setText(newReview.getText());
+		review.setRating(newReview.getRating());
 		review.setUser(authenticatedUser);
 		reviewRepository.save(review);
 		

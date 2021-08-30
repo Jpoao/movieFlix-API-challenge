@@ -23,6 +23,8 @@ public class Review implements Serializable{
 	@Column(columnDefinition = "TEXT")
 	private String text;
 	
+	private Double rating;
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -35,9 +37,11 @@ public class Review implements Serializable{
 		
 	}
 	
-	public Review(Long id, String text, User user, Movie movie) {
+	public Review(Long id, String text, Double movieRate, User user, Movie movie) {
+		super();
 		this.id = id;
 		this.text = text;
+		this.rating = movieRate;
 		this.user = user;
 		this.movie = movie;
 	}
@@ -73,6 +77,15 @@ public class Review implements Serializable{
 	public void setMovie(Movie movie) {
 		this.movie = movie;
 	}
+	
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double movieRate) {
+		this.rating = movieRate;
+	}
+
 
 	@Override
 	public int hashCode() {

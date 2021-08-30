@@ -14,6 +14,9 @@ public class ReviewDTO implements Serializable {
 	@NotBlank
 	private String text;
 	
+	@NotBlank
+	private Double rating;
+	
 	private Long movieId;
 	private UserDTO user;
 	
@@ -21,17 +24,19 @@ public class ReviewDTO implements Serializable {
 		
 	}
 
-	public ReviewDTO(Long id, String text, Long movieId, UserDTO user) {
+	public ReviewDTO(Long id, String text, Long movieId, UserDTO user, Double rating) {
 		this.id = id;
 		this.text = text;
 		this.movieId = movieId;
 		this.user = user;
+		this.rating = rating;
 	}
 	
 	public ReviewDTO(Review review) {
 		id = review.getId();
 		text = review.getText();
 		movieId = review.getMovie().getId();
+		rating = review.getRating();
 		user = new UserDTO(review.getUser());
 	}
 
@@ -67,4 +72,11 @@ public class ReviewDTO implements Serializable {
 		this.user = user;
 	}
 
+	public Double getRating() {
+		return rating;
+	}
+
+	public void setRating(Double rating) {
+		this.rating = rating;
+	}
 }
